@@ -24,7 +24,7 @@
           Prescription
         </label>
 
-        <input type="text" id="prescription_id" name="prescription_id" placeholder="Prescription" class="form-control" value="<%= @record.prescription_id %>">
+        <%= select_tag(:prescription_id, options_from_collection_for_select(Prescription.all, :id, :doctor_id, @record.prescription_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
