@@ -15,7 +15,13 @@
 
       <% @records.each do |record| %>
       <tr>
-        <td><%= record.prescription.doctor_id %></td>
+        <td>
+          <% if record.prescription.present? %>
+            <a href="/prescriptions/<%= record.prescription.id %>">
+              <%= record.prescription.doctor_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/records/<%= record.id %>" class="btn btn-primary">Show</a>
           <a href="/records/<%= record.id %>/edit" class="btn btn-warning">Edit</a>
