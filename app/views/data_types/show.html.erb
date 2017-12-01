@@ -54,6 +54,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_prescription" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for doctor_id -->
+      <input type="hidden" name="doctor_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for patient_id -->
+      <div class="form-group">
+        <label for="patient_id" class="control-label">
+          Patient
+        </label>
+
+        <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for datatype_id -->
+      <div class="form-group">
+        <label for="datatype_id" class="control-label">
+          Datatype
+        </label>
+
+        <%= select_tag(:datatype_id, options_from_collection_for_select(DataType.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Prescription
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

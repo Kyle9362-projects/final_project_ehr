@@ -16,6 +16,7 @@ class PrescriptionsController < ApplicationController
   end
 
   def show
+    @record = Record.new
     @prescription = Prescription.find(params[:id])
 
     render("prescriptions/show.html.erb")

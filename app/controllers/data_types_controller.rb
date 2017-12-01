@@ -6,6 +6,7 @@ class DataTypesController < ApplicationController
   end
 
   def show
+    @prescription = Prescription.new
     @data_type = DataType.find(params[:id])
 
     render("data_types/show.html.erb")
