@@ -15,7 +15,7 @@
 
       <% @records.each do |record| %>
       <tr>
-        <td><%= record.prescription_id %></td>
+        <td><%= record.prescription.doctor_id %></td>
         <td>
           <a href="/records/<%= record.id %>" class="btn btn-primary">Show</a>
           <a href="/records/<%= record.id %>/edit" class="btn btn-warning">Edit</a>
